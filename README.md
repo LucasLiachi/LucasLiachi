@@ -24,7 +24,7 @@ Durante meus estudos e minha carreira construí materiais que gostaria de compar
 * Qualidade em treinamentos e geração de competências
 
 ## **Gestão por Processos**
-* [Guia BPMN] (https://lucasliachi.github.io/guia-bmpn)
+* [Guia BPMN](https://lucasliachi.github.io/guia-bmpn)
 * Processos ponta a ponta (E2E)
 
 ## **Governança TI**
