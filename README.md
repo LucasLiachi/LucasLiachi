@@ -21,16 +21,16 @@ Durante meus estudos e minha carreira construí materiais que gostaria de compar
 ## **Gestão da Qualidade**
 * SGQ e Auditorias
 * Metrologia com IOT (IBM Watson e NodeJS)
-* Qualidade em treinamentos e geração de competências
+* [Qualidade em treinamentos e geração de competências](https://www.linkedin.com/pulse/como-avaliar-o-valor-gerado-por-um-treinamento-atrav%C3%A9s-lucas-liachi/)
 
 ## **Gestão por Processos**
 * [Guia BPMN](https://lucasliachi.github.io/guia-bmpn)
 * Processos ponta a ponta (E2E)
 
 ## **Governança TI**
-* Estudos em COBIT e certificação]
+* Estudos em COBIT e certificação
 * Estudos ITIL e certificação
 * Metodologia Ágil
 
 ## **GRC (Governance, Risk and Compliance)**
-* Controle de licenças e acessos
+* 
