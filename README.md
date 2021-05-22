@@ -28,9 +28,7 @@ Durante meus estudos e minha carreira construí materiais que gostaria de compar
 * Processos ponta a ponta (E2E)
 
 ## **Governança TI**
-* Estudos em COBIT e certificação
-* Estudos ITIL e certificação
-* Metodologia Ágil
+* [Aplicando SixSigma para Quality Assurance](https://www.linkedin.com/pulse/aplicando-sixsigma-para-quality-assurance-da-ind%C3%BAstria-lucas-liachi) 
 
 ## **GRC (Governance, Risk and Compliance)**
 * 
