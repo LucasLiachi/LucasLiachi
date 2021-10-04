@@ -32,3 +32,6 @@ Durante meus estudos e minha carreira construí materiais que gostaria de compar
 
 ## **GRC (Governance, Risk and Compliance)**
 * 
+
+## **Desenvolvimento**
+* [Imersão Dev Alura - Exemplos de programações JS](https://lucasliachi.github.io/alura-dev-certificard/)
