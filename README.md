@@ -2,8 +2,6 @@
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"> Olá!
 </h1>
 
-### Sobre Mim
-
 Eu sou **Lucas Liachi**, um especialista em processos e qualidade que adora tecnologia e trabalha com Governança de TI. Gosto muito de compartilhar e exercitar o conhecimento para consolidar meus aprendizados.
 
 Uso o repositório GIT para gerenciar meus pequenos projetos, como um lembrete para o Lucas do futuro. Eles estão disponíveis para quem precisar, sinta-se à vontade!
@@ -14,28 +12,14 @@ Uso o repositório GIT para gerenciar meus pequenos projetos, como um lembrete p
 - 📫 Como me encontrar: Envie-me uma mensagem no [LinkedIn](https://linkedin.com/in/lucasliachi)
 - 😄 Pronomes: Ele/Dele
 
-## Carta de Apresentação no Github
-
-Prezado(a) Recrutador(a),
-
-Eu sou **Lucas Liachi**, um especialista de processos com mais de 7 anos de experiência. Estou muito animado para me candidatar à vaga de **Especialista de Processos** em sua empresa.
-
-Minhas habilidades incluem:
+## Minhas habilidades incluem:
 
 - Desenvolvimento de sites e aplicativos web usando HTML, CSS e JavaScript;
-- Experiência com frameworks front-end, como React e Angular;
-- Integração de APIs e serviços web de terceiros;
-- Desenvolvimento de layouts responsivos e amigáveis para dispositivos móveis;
-- Testes automatizados e integração contínua com ferramentas como Jest e Jenkins.
+- Testes automatizados.
 
 Acredito que minha experiência e habilidades se encaixam perfeitamente nas necessidades da sua empresa. Eu adoraria ter a oportunidade de conversar com você sobre como posso ajudar a alcançar seus objetivos de negócios.
 
 Meu blog você consegue acessa-lo através da página: [lucasliachi.github.io](https://lucasliachi.github.io/LucasLiachi/)
-
-Obrigado pela consideração e estou ansioso para ouvir de você em breve.
-
-Atenciosamente,  
-Lucas Liachi
 
 ## Conecte-se Comigo
 
