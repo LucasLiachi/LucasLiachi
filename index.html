@@ -2,16 +2,182 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Portfólio</title>
+    <title>Lucas Liachi - Meu Portfólio</title>
+    <style>
+        /* Estilos CSS globais */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1, footer p {
+            margin: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h2, h3 {
+            color: #007bff;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li:before {
+            content: "•";
+            color: #007bff;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .connect img {
+            vertical-align: middle;
+        }
+        .github-stats img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Estilos adicionais */
+        .center {
+            text-align: center;
+        }
+        .wave {
+            width: 30px;
+        }
+        .gif-icon {
+            width: 35px;
+        }
+        /* Estilos para links */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Estilos para seções */
+        section {
+            margin-bottom: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo ao Meu Site Pessoal</h1>
-    <p>Aqui você encontrará meus projetos e artigos sobre análise de processos, estatística aplicada e muito mais.</p>
-    <nav>
-        <ul>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>Lucas Liachi - Meu Portfólio</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Sobre -->
+        <section id="sobre">
+            <h2 class="center"><img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" alt="Olá!" class="wave"> Olá!</h2>
+            <h3>
+                <p>Eu sou Lucas Liachi, um especialista em processos e qualidade que adora tecnologia e trabalha com Governança de TI. Gosto muito de compartilhar e exercitar o conhecimento para consolidar meus aprendizados.</p>
+                <p>Uso o repositório GIT para gerenciar meus pequenos projetos, como um lembrete para o Lucas do futuro. Eles estão disponíveis para quem precisar, sinta-se à vontade!</p>
+            </h3>
+            <p>- 🔭 Atualmente, trabalho na <a href="https://www.softplan.com.br/" target="_blank">Softplan</a></p>
+            <p>- 🌱 Estou aprendendo sobre Estatística e Arquitetura de Software</p>
+            <p>- 👯 Procuro colaborar em projetos de Estatística</p>
+            <p>- 📫 Como me encontrar: Envie-me uma mensagem no <a href="https://linkedin.com/in/lucasliachi" target="_blank">LinkedIn</a></p>
+            <p>- 😄 Pronomes: Ele/Dele</p>
+            <p>- ⚡ Curiosidade: Canto e toco violão nas horas vagas, alguns vídeos curtos estão no meu <a href="https://www.tiktok.com/@lucasliachi" target="_blank">perfil do TikTok</a></p>
+        </section>
+
+        <!-- Seção Conectar -->
+        <section id="contato">
+            <h2>Conecte-se Comigo</h2>
+            <p class="connect">
+                <a href="https://linkedin.com/in/lucasliachi">
+                    <img src="https://img.shields.io/badge/-Lucas%20Liachi%20-blue?style=plastic&labelColor=blue&logo=LinkedIn&link=https://linkedin.com/in/lucasliachi" alt="LinkedIn Badge">
+                </a>
+            </p>
+        </section>
+
+        <!-- Seção GitHub Info -->
+        <section id="github-info">
+            <h2>Minhas Estatísticas no GitHub <img src="https://i.pinimg.com/originals/65/c4/f4/65c4f452571be1261e9c623f7da488ac.gif" alt="Estatísticas" class="gif-icon"></h2>
+            <div class="github-stats">
+                <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=lucasliachi&langs_count=10&show_icons=true&locale=en&layout=compact&theme=light" alt="Linguagens mais usadas por Lucas Liachi">
+            </div>
+        </section>
+
+        <!-- Seção Projetos -->
+        <section id="projetos">
+            <h2>Alguns dos Meus Compartilhamentos</h2>
+
+            <h3><b>Gestão do Conhecimento</b></h3>
+            <p>Novo método para avaliar a competência gerada por treinamentos.</p>
+            <p>Artigo: <a href="https://www.linkedin.com/pulse/como-avaliar-o-valor-gerado-por-um-treinamento-atrav%C3%A9s-lucas-liachi/">Como avaliar o valor gerado por um treinamento através da avaliação por competência [aplicado com PDCA]</a>.<br>
+            Download: <a href="https://github.com/LucasLiachi/LucasLiachi/raw/master/arquivos-compartilhados/avaliacao-por-competencia/FerramentaPlanilha%20-%20Avalia%C3%A7%C3%A3o%20por%20Compet%C3%AAncia.xlsx">Avaliação por Competência.xlsx</a></p>
+
+            <h3><b>Garantia da Qualidade</b></h3>
+            <p>Aplicando conceitos da indústria de Six Sigma às práticas de qualidade de software.</p>
+            <p>Artigo: <a href="https://www.linkedin.com/pulse/aplicando-sixsigma-para-quality-assurance-da-ind%C3%BAstria-lucas-liachi/">Aplicando Six Sigma para Garantia da Qualidade - Da Indústria ao Teste de Software</a>.<br>
+            Download: <a href="https://github.com/LucasLiachi/LucasLiachi/raw/master/arquivos-compartilhados/gestao-qa/Exemplo%20DPU%20e%20DPO.xlsx">6 Sigma para QA.xlsx</a></p>
+
+            <h3><b>Gestão de Processos</b></h3>
+            <p>Guia BPMN 2.0 para uso na rotina de mapeamento de processos.</p>
+            <p>Página: <a href="./guia-bmpn/index.html">Guia BPMN</a></p>
+            <p>Arquivo para análise de métricas ágeis.</p>
+            <p>Download: <a href="https://github.com/LucasLiachi/LucasLiachi/raw/master/arquivos-compartilhados/metrica-agil/MetricasAgeis.xlsx">Métricas Ágeis.xlsx</a></p>
+        </section>
+
+        <!-- Seção Carta de Apresentação -->
+        <section id="carta">
+            <h2>Carta de Apresentação</h2>
+            <p>Prezado(a) Recrutador(a),</p>
+            <p>Eu sou <strong>Lucas Liachi</strong>, um especialista de processos com mais de 7 anos de experiência. Estou muito animado para me candidatar à vaga de <strong>Especialista de Processos</strong> em sua empresa.</p>
+            <p>Minhas habilidades incluem:</p>
+            <ul>
+                <li>Desenvolvimento de sites e aplicativos web usando HTML, CSS e JavaScript;</li>
+                <li>Experiência com frameworks front-end, como React e Angular;</li>
+                <li>Integração de APIs e serviços web de terceiros;</li>
+                <li>Desenvolvimento de layouts responsivos e amigáveis para dispositivos móveis;</li>
+                <li>Testes automatizados e integração contínua com ferramentas como Jest e Jenkins.</li>
+            </ul>
+            <p>Acredito que minha experiência e habilidades se encaixam perfeitamente nas necessidades da sua empresa. Eu adoraria ter a oportunidade de conversar com você sobre como posso ajudar a alcançar seus objetivos de negócios.</p>
+            <p>Obrigado pela consideração e estou ansioso para ouvir de você em breve.</p>
+            <p>Atenciosamente,<br>Lucas Liachi</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Lucas Liachi - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
