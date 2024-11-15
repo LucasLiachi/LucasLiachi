@@ -21,7 +21,7 @@ Uso o repositório GIT para gerenciar meus pequenos projetos, como um lembrete p
 
 Acredito que minha experiência e habilidades se encaixam perfeitamente nas necessidades da sua empresa. Eu adoraria ter a oportunidade de conversar com você sobre como posso ajudar a alcançar seus objetivos de negócios.
 
-Meu blog você consegue acessa-lo através da página: [lucasliachi.github.io](https://lucasliachi.github.io/LucasLiachi/)
+Meu blog você consegue acessa-lo através da página: [lucasliachi.github.io](https://lucasliachi.github.io/lucasliachi/)
 
 ## Conecte-se Comigo
 
