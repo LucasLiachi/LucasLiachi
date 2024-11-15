@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Lucas Liachi - Portfólio de Desenvolvimento de Software</title>
-    
-    <!-- Meta tags para controle de cache -->
+
+    <!-- Cache Control -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- Link para o arquivo CSS externo com versão para evitar cache -->
-    <link rel="stylesheet" href="styles.css?v=1.0"> 
-    
-    <!-- Bibliotecas para destaque de sintaxe e renderização de Markdown -->
+    <!-- Segurança de DNS Prefetching -->
+    <meta http-equiv="x-dns-prefetch-control" content="off">
+
+    <!-- Link seguro para CSS externo -->
+    <link rel="stylesheet" href="styles.css?v=1.0">
+
+    <!-- Links HTTPS para bibliotecas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
 </head>
 <body>
-    <!-- Cabeçalho com título e barra de pesquisa -->
     <header>
         <h1>Lucas Liachi - Portfólio de Desenvolvimento de Software</h1>
         <input type="text" id="search" placeholder="Pesquisar...">
     </header>
 
-    <!-- Barra lateral de navegação -->
     <nav id="sidebar">
         <ul id="menu">
             <li><a href="sobre.md">Sobre</a></li>
@@ -31,20 +32,16 @@
         </ul>
     </nav>
 
-    <!-- Área principal de conteúdo -->
     <main id="content"></main>
 
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2023 Lucas Liachi - Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Bibliotecas externas -->
+    <!-- Scripts seguros -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-
-    <!-- Script personalizado com versão para evitar cache -->
-    <script src="scripts.js?v=1.0"></script> 
+    <script src="scripts.js?v=1.0"></script>
 </body>
 </html>

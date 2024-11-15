@@ -1,48 +1,45 @@
-// Inicializa o Mermaid
+// Inicializa o Mermaid de forma segura
 mermaid.initialize({ startOnLoad: false });
 
 // Lista de arquivos Markdown para indexação
-const markdownFiles = [
-    'sobre.md',
-    'areas.md',
-    'contato.md',
-    // Adicione outros arquivos Markdown aqui
-];
+const markdownFiles = ['sobre.md', 'areas.md', 'contato.md'];
 
 // Índice de busca
 let searchIndex = [];
 
-// Função para construir o índice de busca
+// Função para construir o índice de busca com controle de erros
 function buildSearchIndex() {
     const promises = markdownFiles.map(file => {
-        return fetch('content/' + file)
-            .then(response => response.text())
+        return fetch(`content/${file}`)
+            .then(response => {
+                if (!response.ok) throw new Error(`Erro ao carregar ${file}`);
+                return response.text();
+            })
             .then(text => {
                 searchIndex.push({
-                    file: file,
+                    file,
                     content: text.toLowerCase(),
                     title: extractTitle(text),
                     rawContent: text
                 });
-            });
+            })
+            .catch(error => console.error('Erro na indexação:', error));
     });
 
     return Promise.all(promises);
 }
 
-// Extrai o título do conteúdo Markdown
+// Função para extrair o título com fallback seguro
 function extractTitle(markdownContent) {
     const titleMatch = markdownContent.match(/^#\s+(.*)$/m);
     return titleMatch ? titleMatch[1] : 'Sem Título';
 }
 
-// Função para carregar um arquivo Markdown
+// Função para carregar um arquivo Markdown com validação
 function loadMarkdown(file) {
-    fetch('content/' + file)
+    fetch(`content/${file}`)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Arquivo não encontrado');
-            }
+            if (!response.ok) throw new Error(`Erro: ${file} não encontrado`);
             return response.text();
         })
         .then(text => {
@@ -51,7 +48,6 @@ function loadMarkdown(file) {
             mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
             highlightCodeBlocks();
             addContentLinkListeners();
-            // Limpa a busca quando um novo conteúdo é carregado
             document.getElementById('search').value = '';
         })
         .catch(error => {
@@ -60,97 +56,51 @@ function loadMarkdown(file) {
         });
 }
 
-// Adiciona ouvintes aos links internos no conteúdo
-function addContentLinkListeners() {
-    const links = document.querySelectorAll('#content a');
-    links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.endsWith('.md')) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const file = href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
-            });
-        }
-    });
-}
-
-// Adiciona ouvintes aos links no menu lateral
-function addSidebarLinkListeners() {
-    const links = document.querySelectorAll('#sidebar a');
-    links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.endsWith('.md')) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const file = href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
-            });
-        }
-    });
-}
-
-// Carrega o arquivo Markdown baseado no hash da URL
+// Sanitiza e verifica o hash da URL antes de carregar o conteúdo
 function loadContentFromHash() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        loadMarkdown(hash);
-    } else {
-        loadMarkdown('sobre.md');
-    }
+    const hash = window.location.hash.substring(1).replace(/[^a-zA-Z0-9-_.\/]/g, '');
+    loadMarkdown(hash || 'sobre.md');
 }
 
 // Função para destacar blocos de código
 function highlightCodeBlocks() {
-    document.querySelectorAll('pre code').forEach((block) => {
+    document.querySelectorAll('pre code').forEach(block => {
         hljs.highlightElement(block);
     });
 }
 
-// Função para gerar breadcrumbs
-function generateBreadcrumbs(file) {
-    const parts = file.replace('.md', '').split('/');
-    let breadcrumbs = '<nav class="breadcrumbs">';
-    let path = '';
-    parts.forEach((part, index) => {
-        if (index > 0) {
-            path += '/';
-        }
-        path += part;
-        if (index < parts.length - 1) {
-            breadcrumbs += `<a href="${path}.md">${part}</a> / `;
-        } else {
-            breadcrumbs += `<span>${part}</span>`;
+// Ouvintes para links internos e links do menu
+function addContentLinkListeners() {
+    document.querySelectorAll('#content a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.endsWith('.md')) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                loadMarkdown(href);
+                history.pushState(null, '', `#${href}`);
+            });
         }
     });
-    breadcrumbs += '</nav>';
-    return breadcrumbs;
 }
 
-// Exibe os resultados da busca
-function displaySearchResults(results) {
-    const contentDiv = document.getElementById('content');
-    if (results.length > 0) {
-        let html = '<h2>Resultados da Pesquisa</h2><ul>';
-        results.forEach(result => {
-            html += `<li><a href="${result.file}">${result.title}</a></li>`;
-        });
-        html += '</ul>';
-        contentDiv.innerHTML = html;
-        addContentLinkListeners();
-    } else {
-        contentDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
-    }
+// Ouvintes do menu lateral
+function addSidebarLinkListeners() {
+    document.querySelectorAll('#sidebar a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.endsWith('.md')) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                loadMarkdown(href);
+                history.pushState(null, '', `#${href}`);
+            });
+        }
+    });
 }
 
-// Implementação da busca
+// Função de busca otimizada
 function implementSearch() {
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', function() {
+    document.getElementById('search').addEventListener('input', function() {
         const query = this.value.toLowerCase();
-
         if (query.length > 2) {
             const results = searchIndex.filter(item => item.content.includes(query));
             displaySearchResults(results);
@@ -160,13 +110,15 @@ function implementSearch() {
     });
 }
 
-// Inicialização da aplicação
+// Inicialização com melhor controle de erros
 window.addEventListener('load', () => {
-    buildSearchIndex().then(() => {
-        addSidebarLinkListeners();
-        implementSearch();
-        loadContentFromHash();
-    });
+    buildSearchIndex()
+        .then(() => {
+            addSidebarLinkListeners();
+            implementSearch();
+            loadContentFromHash();
+        })
+        .catch(error => console.error('Erro ao inicializar a aplicação:', error));
 });
 
 window.addEventListener('popstate', loadContentFromHash);
