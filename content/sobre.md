@@ -1,13 +1,20 @@
-# Bem-vindo ao Meu Portfólio
+# Bem-vindo ao Meu Site de Portfólio
 
-Sou **Lucas Liachi**, analista de processos com ampla experiência em **desenvolvimento de software**, **automação de processos** e **gestão ágil de projetos**. Este portfólio contém exemplos de meus projetos e artigos nas seguintes áreas de atuação:
+Eu sou **Lucas Liachi** e trabalho com gerenciamento de processos, governança e demais disciplinas relacionadas à gestão organizacional. Gosto de exercitar o conhecimento para consolidar meus aprendizados, portanto, decidi estruturar este repositório para gerenciar e compartilhar meus projetos e resultados.
 
-- [Análise de Processos](areas.md#analise-de-processos)
-- [Análise de Dados e Estatística Aplicada](areas.md#analise-de-dados-e-estatistica-aplicada)
-- [Automação de Processos com RPA](areas.md#automacao-de-processos-com-rpa)
-- [Governança de Processos, TI e Corporativa](areas.md#governanca-de-processos-ti-e-corporativa)
-- [Desenvolvimento de Software e Gestão de ERP](areas.md#desenvolvimento-de-software-e-gestao-de-erp)
-- [Ferramentas e Métodos de Gestão de Projetos](areas.md#ferramentas-e-metodos-de-gestao-de-projetos)
-- [Gestão Ágil](areas.md#gestao-agil)
-- [Auditorias e Boas Práticas](areas.md#auditorias-e-boas-praticas)
-- [SixSigma](article/six-sigma-quality-assurance-testes-software-parte1.md)
+- 🔭 Atualmente, trabalho na [Softplan](https://www.softplan.com.br/);
+- 🌱 Estou em uma nova graduação em Estatística;
+- 👯 Procuro colaborar em projetos que envolvam eficiência em processos, como automações ou análises estatísticas;
+- 📨 Como me encontrar: Envie-me uma mensagem no [LinkedIn](https://linkedin.com/in/lucasliachi)
+
+[![LinkedIn Badge](https://img.shields.io/badge/-Lucas%20Liachi%20-blue?style=plastic&labelColor=blue&logo=LinkedIn&link=https://linkedin.com/in/lucasliachi)](https://linkedin.com/in/lucasliachi)
+
+# Carreira:
+
+
+
+# Formação acadêmica:
+
+
+
+# Projetos extras:

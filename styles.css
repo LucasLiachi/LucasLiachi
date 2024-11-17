@@ -65,11 +65,11 @@ header h1 {
 /* Rodapé */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 1px;
     background-color: #ecf0f1;
     position: fixed;
     bottom: 0;
     width: calc(100% - 240px);
-    margin-left: 240px;
+    margin-left: 200px;
     box-sizing: border-box;
 }

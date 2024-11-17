@@ -1,9 +1,7 @@
 # Aplicando Six Sigma em Quality Assurance: Da Indústria para os Testes de Software
 
-**Lucas Liachi**  
-Especialista em Processos | Governança | Gestão Ágil | Análise de Dados | ALM
-
-Publicado em: 22 de maio de 2021
+- Artigo LinkedIn: [Aplicando SixSigma para Quality Assurance](https://www.linkedin.com/pulse/aplicando-sixsigma-para-quality-assurance-da-ind%C3%BAstria-lucas-liachi)
+- Artigo Medium: [Aplicando SixSigma para Quality Assurance](https://www.linkedin.com/pulse/aplicando-sixsigma-para-quality-assurance-da-ind%C3%BAstria-lucas-liachi)
 
 ## Introdução: Six Sigma nos Testes de Software
 
