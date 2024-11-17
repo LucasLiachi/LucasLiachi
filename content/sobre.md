@@ -10,3 +10,4 @@ Sou **Lucas Liachi**, analista de processos com ampla experiência em **desenvol
 - [Ferramentas e Métodos de Gestão de Projetos](areas.md#ferramentas-e-metodos-de-gestao-de-projetos)
 - [Gestão Ágil](areas.md#gestao-agil)
 - [Auditorias e Boas Práticas](areas.md#auditorias-e-boas-praticas)
+- [SixSigma](article/six-sigma-quality-assurance-testes-software-parte1.md)
