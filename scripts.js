@@ -47,6 +47,7 @@ function loadMarkdown(file) {
         .then(text => {
             const html = marked.parse(text);
             document.getElementById('content').innerHTML = generateBreadcrumbs(file) + html;
+            // Inicializa o Mermaid em elementos de diagrama
             mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
             highlightCodeBlocks();
             addContentLinkListeners();
@@ -67,7 +68,7 @@ function addContentLinkListeners() {
         if (href && href.endsWith('.md')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const file = 'content/' + href;
+                const file = href.startsWith('content/') ? href : 'content/' + href;
                 loadMarkdown(file);
                 history.pushState(null, '', '#' + file);
             });
@@ -83,7 +84,7 @@ function addSidebarLinkListeners() {
         if (href && href.endsWith('.md')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const file = 'content/' + href;
+                const file = href.startsWith('content/') ? href : 'content/' + href;
                 loadMarkdown(file);
                 history.pushState(null, '', '#' + file);
             });
@@ -119,7 +120,7 @@ function generateBreadcrumbs(file) {
         }
         path += part;
         if (index < parts.length - 1) {
-            breadcrumbs += `<a href="content/${path}.md">${part}</a> / `;
+            breadcrumbs += `<a href="#content/${path}.md">${part}</a> / `;
         } else {
             breadcrumbs += `<span>${part}</span>`;
         }
@@ -134,7 +135,7 @@ function displaySearchResults(results) {
     if (results.length > 0) {
         let html = '<h2>Resultados da Pesquisa</h2><ul>';
         results.forEach(result => {
-            html += `<li><a href="${result.file}">${result.title}</a></li>`;
+            html += `<li><a href="#${result.file}">${result.title}</a></li>`;
         });
         html += '</ul>';
         contentDiv.innerHTML = html;
