@@ -11,6 +11,15 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
+    <!-- Segurança e otimização de DNS -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- Estilos -->
     <link rel="stylesheet" href="styles.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
@@ -19,18 +28,17 @@
     <header>
         <h1>Lucas Liachi - Portfólio</h1>
         <input type="text" id="search" placeholder="Pesquisar...">
-        <button id="menu-toggle">☰</button>
     </header>
 
     <nav id="sidebar">
         <ul id="menu">
-            <li><a href="sobre.md">Sobre</a></li>
-            <li><a href="areas.md">Áreas de conhecimento</a></li>
-            <li><a href="content/repository/process/process.md">Processos</a></li>
-            <li><a href="content/repository/governance-corp/governance-corp.md">Governança Corporativa</a></li>
-            <li><a href="content/repository/governance-it/governance-it.md">Governança de TI</a></li>
-            <li><a href="content/repository/development/development.md">Desenvolvimento</a></li>
-            <li><a href="content/repository/statistics/statistics.md">Estatística</a></li>
+            <li><a href="content/sobre.md">Sobre</a></li>
+            <li><a href="content/areas.md">Áreas de conhecimento</a></li>
+            <li><a href="content/repository/process/process.md"> - Processos</a></li>
+            <li><a href="content/repository/governance-corp/governance-corp.md"> - Governança Corporativa</a></li>
+            <li><a href="content/repository/governance-it/governance-it.md"> - Governança de TI</a></li>
+            <li><a href="content/repository/development/development.md"> - Desenvolvimento</a></li>
+            <li><a href="content/repository/statistics/statistics.md"> - Estatística</a></li>
         </ul>
     </nav>
 
@@ -40,7 +48,10 @@
         <p>&copy; 2024 Lucas Liachi - Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts seguros e otimizados -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script src="scripts.js?v=1.0"></script>
 </body>
 </html>

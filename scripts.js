@@ -47,12 +47,10 @@ function loadMarkdown(file) {
         .then(text => {
             const html = marked.parse(text);
             document.getElementById('content').innerHTML = generateBreadcrumbs(file) + html;
-            // Inicializa o Mermaid em elementos de diagrama
             mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
             highlightCodeBlocks();
             addContentLinkListeners();
-            // Limpa a busca quando um novo conteúdo é carregado
-            document.getElementById('search').value = '';
+            document.getElementById('search').value = ''; // Limpa a busca
         })
         .catch(error => {
             document.getElementById('content').innerHTML = '<p>Conteúdo não encontrado.</p>';
@@ -62,33 +60,27 @@ function loadMarkdown(file) {
 
 // Adiciona ouvintes aos links internos no conteúdo
 function addContentLinkListeners() {
-    const links = document.querySelectorAll('#content a');
+    const links = document.querySelectorAll('#content a[href$=".md"]');
     links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.endsWith('.md')) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const file = href.startsWith('content/') ? href : 'content/' + href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
-            });
-        }
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const file = 'content/' + link.getAttribute('href');
+            loadMarkdown(file);
+            history.pushState(null, '', '#' + file);
+        });
     });
 }
 
 // Adiciona ouvintes aos links no menu lateral
 function addSidebarLinkListeners() {
-    const links = document.querySelectorAll('#sidebar a');
+    const links = document.querySelectorAll('#sidebar a[href$=".md"]');
     links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.endsWith('.md')) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const file = href.startsWith('content/') ? href : 'content/' + href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
-            });
-        }
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const file = link.getAttribute('href');
+            loadMarkdown(file);
+            history.pushState(null, '', '#' + file);
+        });
     });
 }
 
@@ -115,15 +107,11 @@ function generateBreadcrumbs(file) {
     let breadcrumbs = '<nav class="breadcrumbs">';
     let path = '';
     parts.forEach((part, index) => {
-        if (index > 0) {
-            path += '/';
-        }
+        if (index > 0) path += '/';
         path += part;
-        if (index < parts.length - 1) {
-            breadcrumbs += `<a href="#content/${path}.md">${part}</a> / `;
-        } else {
-            breadcrumbs += `<span>${part}</span>`;
-        }
+        breadcrumbs += index < parts.length - 1
+            ? `<a href="content/${path}.md">${part}</a> / `
+            : `<span>${part}</span>`;
     });
     breadcrumbs += '</nav>';
     return breadcrumbs;
@@ -135,7 +123,7 @@ function displaySearchResults(results) {
     if (results.length > 0) {
         let html = '<h2>Resultados da Pesquisa</h2><ul>';
         results.forEach(result => {
-            html += `<li><a href="#${result.file}">${result.title}</a></li>`;
+            html += `<li><a href="${result.file}">${result.title}</a></li>`;
         });
         html += '</ul>';
         contentDiv.innerHTML = html;
@@ -145,28 +133,9 @@ function displaySearchResults(results) {
     }
 }
 
-// Implementação da busca
-function implementSearch() {
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase();
-
-        if (query.length > 2) {
-            const results = searchIndex.filter(item => item.content.includes(query));
-            displaySearchResults(results);
-        } else if (query.length === 0) {
-            loadContentFromHash();
-        }
-    });
-}
-
-// Inicialização da aplicação
-window.addEventListener('load', () => {
-    buildSearchIndex().then(() => {
-        addSidebarLinkListeners();
-        implementSearch();
-        loadContentFromHash();
-    });
+// Adiciona os ouvintes ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    loadContentFromHash();
+    addSidebarLinkListeners();
+    window.addEventListener('hashchange', loadContentFromHash);
 });
-
-window.addEventListener('popstate', loadContentFromHash);
