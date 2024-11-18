@@ -1,90 +1,63 @@
-/* Reset básico */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Estilização básica */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
-    color: #5deaea;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 1000;
-}
-
-#menu-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #5deaea;
-    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
 
 #search {
+    margin-top: 10px;
     padding: 5px;
-    border: none;
-    border-radius: 3px;
+    width: 200px;
 }
 
 #sidebar {
-    width: 220px;
-    background-color: #000;
-    color: #fff;
-    position: fixed;
-    top: 60px; /* Abaixo do header */
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
+    background-color: #222;
+    color: white;
+    width: 200px;
+    float: left;
+    height: 100vh;
+    padding: 10px;
+}
+
+#sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+#sidebar a:hover {
+    background-color: #575757;
+}
+
+main {
+    margin-left: 220px;
     padding: 20px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out; /* Animação suave */
-}
-
-#sidebar.active {
-    transform: translateX(0); /* Sidebar visível */
-}
-
-#content {
-    flex-grow: 1; /* O conteúdo ocupa o espaço restante */
-    padding-left: 240px; /* Espaço para a sidebar */
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #000;
-    color: #5deaea;
+    background-color: #222;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    #sidebar {
-        width: 100%;
-        transform: translateX(-100%);
-    }
-
-    #sidebar.active {
-        transform: translateX(0);
-    }
-
-    #content {
-        padding-left: 0; /* Remover espaço lateral em telas menores */
-        margin-top: 60px; /* Ajustar margem superior para o header fixo */
-    }
+.breadcrumbs {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #666;
 }
