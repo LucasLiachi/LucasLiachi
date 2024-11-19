@@ -4,7 +4,12 @@ mermaid.initialize({ startOnLoad: false });
 // Lista de arquivos Markdown para indexação
 const markdownFiles = [
     'content/sobre.md',
-    'content/areas.md'
+    'content/areas.md',
+    'content/repository/process/process.md',
+    'content/repository/governance-corp/governance-corp.md',
+    'content/repository/governance-it/governance-it.md',
+    'content/repository/development/development.md',
+    'content/repository/statistics/statistics.md'
 ];
 
 // Índice de busca
@@ -24,7 +29,6 @@ function buildSearchIndex() {
                 });
             });
     });
-
     return Promise.all(promises);
 }
 
@@ -66,9 +70,8 @@ function addContentLinkListeners() {
         if (href && href.endsWith('.md')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const file = 'content/' + href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
+                loadMarkdown(href); // Usa diretamente o href sem adicionar 'content/'
+                history.pushState(null, '', '#' + href);
             });
         }
     });
@@ -82,9 +85,8 @@ function addSidebarLinkListeners() {
         if (href && href.endsWith('.md')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const file = 'content/' + href;
-                loadMarkdown(file);
-                history.pushState(null, '', '#' + file);
+                loadMarkdown(href); // Usa diretamente o href sem adicionar 'content/'
+                history.pushState(null, '', '#' + href); // Atualiza a URL com o novo hash
             });
         }
     });
@@ -92,10 +94,11 @@ function addSidebarLinkListeners() {
 
 // Carrega o arquivo Markdown baseado no hash da URL
 function loadContentFromHash() {
-    const hash = window.location.hash.substring(1);
+    const hash = window.location.hash.substring(1); // Remove o '#' do início
     if (hash) {
-        loadMarkdown(hash);
+        loadMarkdown(hash); // Usa diretamente o hash como caminho do arquivo
     } else {
+        // Se não houver hash, carrega um arquivo padrão (por exemplo, 'sobre.md')
         loadMarkdown('content/sobre.md');
     }
 }
@@ -107,23 +110,14 @@ function highlightCodeBlocks() {
     });
 }
 
-// Função para gerar breadcrumbs
+// Função para gerar breadcrumbs (caminho de navegação)
 function generateBreadcrumbs(file) {
     const parts = file.replace('content/', '').replace('.md', '').split('/');
-    let breadcrumbs = '<nav class="breadcrumbs">';
-    let path = '';
+    let breadcrumbs = '';
     parts.forEach((part, index) => {
-        if (index > 0) {
-            path += '/';
-        }
-        path += part;
-        if (index < parts.length - 1) {
-            breadcrumbs += `<a href="content/${path}.md">${part}</a> / `;
-        } else {
-            breadcrumbs += `<span>${part}</span>`;
-        }
+        breadcrumbs += `<span>${part}</span>`;
+        if (index < parts.length - 1) breadcrumbs += ' > ';
     });
-    breadcrumbs += '</nav>';
     return breadcrumbs;
 }
 
@@ -131,13 +125,13 @@ function generateBreadcrumbs(file) {
 function displaySearchResults(results) {
     const contentDiv = document.getElementById('content');
     if (results.length > 0) {
-        let html = '<h2>Resultados da Pesquisa</h2><ul>';
+        let html = '<ul>';
         results.forEach(result => {
-            html += `<li><a href="${result.file}">${result.title}</a></li>`;
+            html += `<li><a href="#${result.file}">${result.title}</a></li>`;
         });
         html += '</ul>';
         contentDiv.innerHTML = html;
-        addContentLinkListeners();
+        addContentLinkListeners(); // Adiciona ouvintes aos links dos resultados da busca
     } else {
         contentDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
     }
@@ -148,7 +142,6 @@ function implementSearch() {
     const searchInput = document.getElementById('search');
     searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase();
-
         if (query.length > 2) {
             const results = searchIndex.filter(item => item.content.includes(query));
             displaySearchResults(results);
@@ -167,4 +160,5 @@ window.addEventListener('load', () => {
     });
 });
 
+// Suporte à navegação pelo histórico do navegador (botões voltar/avançar)
 window.addEventListener('popstate', loadContentFromHash);
