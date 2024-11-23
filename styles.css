@@ -48,10 +48,10 @@ main {
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 1px;
     background-color: #222;
     color: white;
-    position: fixed;
+    position: relative;
     width: 100%;
     bottom: 0;
 }

@@ -1,5 +1,25 @@
 # Processos empresariais ponta a ponta
 
+
+
+## Ponta a ponta financeiro
+
+
+## Ponta a ponta logístico
+
+
+## Ponta a ponta serviços
+
+
+## Ponta a ponta desenvolvimento
+
+
+## Ponta a ponta em recursos humanos
+- gestão de clima
+- avaliação de desempenho
+- treinamento e desenvolvimento
+- planejamento de sucessão.
+
 ## Análise de Processos
 
 Estudo e melhoria contínua de processos empresariais para aumentar a eficiência e reduzir custos. Utilizo metodologias como **BPMN** e técnicas de **mapeamento de processos**.
